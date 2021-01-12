@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainStack" prefHeight="585.0" prefWidth="1040.0"
            stylesheets="@BasicCss.css" xmlns="http://javafx.com/javafx/9"
-           fx:controller="FXMLDocumentController">
+           fx:controller="org.umpmax.FXMLDocumentController">
     <children>
         <VBox fx:id="FatherContainer" alignment="CENTER" cacheShape="false" centerShape="false" scaleShape="false"
               style="-fx-background-color: #646464;">
