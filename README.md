@@ -15,3 +15,11 @@ A Media player made in JavaFX
 
 Windows and Mac users have to compile it using maven.
 `mvn clean compile javafx:jlink`
+
+# Screen Shots
+
+![alt text](1.png)
+![alt text](2.png)
+![alt text](3.png)
+![alt text](4.png)
+![alt text](5.png)
