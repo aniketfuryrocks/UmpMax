@@ -3,137 +3,86 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="mainStack" prefHeight="585.0" prefWidth="1040.0" stylesheets="@BasicCss.css"
-           xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="org.umpmax.FXMLDocumentController">
-    <VBox fx:id="FatherContainer" alignment="CENTER" cacheShape="false" centerShape="false" scaleShape="false"
-          style="-fx-background-color: #646464;">
-        <HBox fx:id="TitleBar" minHeight="-Infinity" prefHeight="35.0" style="-fx-background-color: #464444;"
-              VBox.vgrow="SOMETIMES">
-            <Label fx:id="companyLogo" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity"
-                   maxWidth="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="40.0"
-                   style="-fx-background-color: #e79523;" textFill="WHITE"/>
-            <Label fx:id="infoactlb" cacheShape="false" centerShape="false"
-                   maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="1.0" pickOnBounds="false"
-                   prefHeight="35.0" prefWidth="835.0" scaleShape="false" text="yo" textFill="WHITE"
-                   visible="false" HBox.hgrow="ALWAYS">
+<StackPane fx:id="mainStack" prefHeight="585.0" prefWidth="1040.0" stylesheets="@BasicCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.umpmax.FXMLDocumentController">
+    <VBox fx:id="FatherContainer" alignment="CENTER" cacheShape="false" centerShape="false" scaleShape="false" style="-fx-background-color: #646464;">
+        <HBox fx:id="TitleBar" minHeight="-Infinity" prefHeight="35.0" style="-fx-background-color: #464444;" VBox.vgrow="SOMETIMES">
+            <Label fx:id="companyLogo" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="40.0" style="-fx-background-color: #e79523;" textFill="WHITE">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin></Label>
+            <Label fx:id="infoactlb" cacheShape="false" centerShape="false" ellipsisString="" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="1.0" pickOnBounds="false" prefHeight="35.0" prefWidth="835.0" scaleShape="false" textFill="WHITE" textOverrun="CLIP" visible="false" HBox.hgrow="ALWAYS">
                 <font>
-                    <Font size="25.0"/>
+                    <Font size="18.0" />
                 </font>
+            <padding>
+               <Insets left="10.0" />
+            </padding>
             </Label>
-            <JFXButton fx:id="EquaBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY"
-                       prefHeight="35.0" prefWidth="31.0" scaleShape="false" text="Eq" textFill="WHITE"
-                       HBox.hgrow="ALWAYS"/>
-            <JFXButton fx:id="BoostBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY"
-                       prefHeight="35.0" prefWidth="20.0" scaleShape="false" text="Boost" textFill="WHITE"
-                       HBox.hgrow="ALWAYS"/>
-            <JFXButton fx:id="MinimizeBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY"
-                       prefHeight="35.0" prefWidth="20.0" scaleShape="false" text="Min" textFill="WHITE"
-                       HBox.hgrow="ALWAYS"/>
-            <JFXButton fx:id="ExitBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY"
-                       prefHeight="35.0" prefWidth="20.0" scaleShape="false" text="Exit" textFill="#fffbfb"
-                       HBox.hgrow="ALWAYS"/>
+            <JFXButton fx:id="EquaBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY" prefHeight="35.0" prefWidth="31.0" scaleShape="false" text="Eq" textFill="WHITE" HBox.hgrow="ALWAYS" />
+            <JFXButton fx:id="BoostBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY" prefHeight="35.0" prefWidth="20.0" scaleShape="false" text="Boost" textFill="WHITE" HBox.hgrow="ALWAYS" />
+            <JFXButton fx:id="MinimizeBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY" prefHeight="35.0" prefWidth="20.0" scaleShape="false" text="Min" textFill="WHITE" HBox.hgrow="ALWAYS" />
+            <JFXButton fx:id="ExitBt" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY" prefHeight="35.0" prefWidth="20.0" scaleShape="false" text="Exit" textFill="#fffbfb" HBox.hgrow="ALWAYS" />
         </HBox>
-        <StackPane cacheShape="false" centerShape="false" maxHeight="1.7976931348623157E308"
-                   maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="549.0"
-                   prefWidth="970.0" scaleShape="false" VBox.vgrow="ALWAYS">
-            <HBox fx:id="DataContainer" cacheShape="false" centerShape="false"
-                  maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" scaleShape="false">
-                <VBox alignment="TOP_CENTER" cacheShape="false" centerShape="false" maxWidth="-Infinity"
-                      minWidth="-Infinity" prefWidth="40.0" scaleShape="false" spacing="5.0"
-                      style="-fx-background-color: #e79523;">
+        <StackPane cacheShape="false" centerShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="549.0" prefWidth="970.0" scaleShape="false" VBox.vgrow="ALWAYS">
+            <HBox fx:id="DataContainer" cacheShape="false" centerShape="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" scaleShape="false">
+                <VBox alignment="TOP_CENTER" cacheShape="false" centerShape="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" scaleShape="false" spacing="5.0" style="-fx-background-color: #e79523;">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                     <padding>
-                        <Insets top="20.0"/>
+                        <Insets top="20.0" />
                     </padding>
-                    <JFXButton fx:id="MainCollectionBt" contentDisplay="GRAPHIC_ONLY" prefHeight="25.0"
-                               prefWidth="40.0" text="Mu" textFill="WHITE"/>
-                    <JFXButton fx:id="MainPlaylistBt" contentDisplay="GRAPHIC_ONLY" prefHeight="25.0"
-                               prefWidth="43.0" text="Me" textFill="#fffefe"/>
-                    <JFXButton fx:id="MainSettingsBt" contentDisplay="GRAPHIC_ONLY" prefHeight="25.0"
-                               prefWidth="43.0" text="Set" textFill="WHITE"/>
+                    <JFXButton fx:id="MainCollectionBt" contentDisplay="GRAPHIC_ONLY" prefHeight="25.0" prefWidth="40.0" text="Mu" textFill="WHITE" />
+                    <JFXButton fx:id="MainPlaylistBt" contentDisplay="GRAPHIC_ONLY" prefHeight="25.0" prefWidth="43.0" text="Me" textFill="#fffefe" />
+                    <JFXButton fx:id="MainSettingsBt" contentDisplay="GRAPHIC_ONLY" prefHeight="25.0" prefWidth="43.0" text="Set" textFill="WHITE" />
                 </VBox>
-                <AnchorPane cacheShape="false" centerShape="false" prefHeight="537.0" prefWidth="196.0"
-                            scaleShape="false" style="-fx-background-color: #434343;"
-                            HBox.hgrow="NEVER">
-                    <HBox fx:id="FunctionVBox" layoutX="15.0" layoutY="22.0" spacing="40.0"
-                          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                          AnchorPane.topAnchor="22.0">
-                        <Label fx:id="CurrentModeLb" prefHeight="31.0" prefWidth="145.0"
-                               text="UmpMax" textFill="#fffefe" HBox.hgrow="ALWAYS">
+                <AnchorPane cacheShape="false" centerShape="false" prefHeight="537.0" prefWidth="196.0" scaleShape="false" style="-fx-background-color: #434343;" HBox.hgrow="NEVER">
+                    <HBox fx:id="FunctionVBox" layoutX="15.0" layoutY="22.0" spacing="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="22.0">
+                        <Label fx:id="CurrentModeLb" ellipsisString="" prefHeight="31.0" prefWidth="203.0" text="UmpMax" textFill="#fffefe" textOverrun="CLIP" HBox.hgrow="ALWAYS">
                             <font>
-                                <Font name="System Bold" size="21.0"/>
+                                <Font name="System Bold" size="20.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="10.0"/>
+                                <Insets left="10.0" />
                             </HBox.margin>
                         </Label>
-                        <JFXButton fx:id="SearchBt" prefHeight="25.0" prefWidth="44.0" text="O-"
-                                   textFill="WHITE" visible="false">
+                        <JFXButton fx:id="SearchBt" prefHeight="25.0" prefWidth="44.0" text="O-" textFill="WHITE" visible="false">
                             <HBox.margin>
-                                <Insets right="10.0"/>
+                                <Insets right="10.0" />
                             </HBox.margin>
                         </JFXButton>
                     </HBox>
-                    <JFXListView fx:id="SubContentList" fixedCellSize="40.0" layoutY="69.0"
-                                 prefHeight="467.0" prefWidth="196.0" stylesheets="@SubListCss.css"
-                                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                    <JFXListView fx:id="SubContentList" fixedCellSize="40.0" layoutY="69.0" prefHeight="467.0" prefWidth="196.0" stylesheets="@SubListCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                         <padding>
-                            <Insets left="15.0"/>
+                            <Insets left="15.0" />
                         </padding>
                     </JFXListView>
                 </AnchorPane>
-                <StackPane fx:id="AllContentStack" cacheShape="false" centerShape="false" prefHeight="541.0"
-                           prefWidth="690.0" scaleShape="false" HBox.hgrow="SOMETIMES"/>
+                <StackPane fx:id="AllContentStack" cacheShape="false" centerShape="false" prefHeight="541.0" prefWidth="690.0" scaleShape="false" HBox.hgrow="SOMETIMES" />
             </HBox>
-            <VBox fx:id="PlayerContainer" alignment="CENTER" cacheShape="false" centerShape="false"
-                  scaleShape="false" visible="false">
-                <HBox fx:id="VisualContainer" alignment="CENTER" cacheShape="false" centerShape="false"
-                      prefHeight="541.0" prefWidth="955.0" scaleShape="false" spacing="2.0"
-                      VBox.vgrow="ALWAYS">
+            <VBox fx:id="PlayerContainer" alignment="CENTER" cacheShape="false" centerShape="false" scaleShape="false" visible="false">
+                <HBox fx:id="VisualContainer" alignment="CENTER" cacheShape="false" centerShape="false" prefHeight="541.0" prefWidth="955.0" scaleShape="false" spacing="2.0" VBox.vgrow="ALWAYS">
                 </HBox>
-                <HBox fx:id="InfoBox" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false"
-                      fillHeight="false" prefHeight="327.0" prefWidth="970.0" scaleShape="false"
-                      spacing="10.0">
+                <HBox fx:id="InfoBox" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false" fillHeight="false" prefHeight="327.0" prefWidth="970.0" scaleShape="false" spacing="10.0">
                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0"/>
+                        <Insets bottom="10.0" left="10.0" />
                     </VBox.margin>
-                    <ImageView fx:id="albumImg" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true"/>
+                    <ImageView fx:id="albumImg" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" />
                 </HBox>
             </VBox>
         </StackPane>
-        <HBox fx:id="ControlBar" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false"
-              maxHeight="-Infinity" minHeight="-Infinity" minWidth="1.0" prefHeight="30.0" scaleShape="false"
-              style="-fx-background-color: #464444;" VBox.vgrow="SOMETIMES">
-            <Label fx:id="SongName" cacheShape="false" centerShape="false" minWidth="60.0" prefHeight="28.0"
-                   prefWidth="97.0" scaleShape="false" text="  Song Name" textFill="WHITE" HBox.hgrow="ALWAYS"/>
-            <JFXSlider fx:id="PlayerSeek" cacheShape="false" centerShape="false"
-                       maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="549.0" scaleShape="false"
-                       HBox.hgrow="ALWAYS">
-                <effect>
-                    <ColorAdjust brightness="0.07" contrast="0.38" hue="-0.55"/>
-                </effect>
-            </JFXSlider>
-            <JFXButton fx:id="PlayerLast" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0"
-                       prefHeight="30.0" prefWidth="40.0" text="Last" textFill="WHITE" HBox.hgrow="SOMETIMES"/>
-            <JFXButton fx:id="PlayerPlay" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0"
-                       prefHeight="30.0" prefWidth="40.0" text="Play" textFill="WHITE" HBox.hgrow="SOMETIMES"/>
-            <JFXButton fx:id="PlayerNext" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0"
-                       prefHeight="45.0" prefWidth="40.0" text="Next" textFill="WHITE" HBox.hgrow="SOMETIMES"/>
-            <JFXButton fx:id="PlayerRepeat" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0"
-                       prefHeight="41.0" prefWidth="40.0" text="Repeat" textFill="WHITE"
-                       HBox.hgrow="SOMETIMES"/>
-            <JFXButton fx:id="PlayerShuffle" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0"
-                       prefHeight="38.0" prefWidth="40.0" text="Shuffle" textFill="WHITE"
-                       HBox.hgrow="SOMETIMES"/>
+        <HBox fx:id="ControlBar" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false" maxHeight="-Infinity" minHeight="-Infinity" minWidth="1.0" prefHeight="30.0" scaleShape="false" style="-fx-background-color: #464444;" VBox.vgrow="SOMETIMES">
+            <Label fx:id="SongName" cacheShape="false" centerShape="false" minWidth="60.0" prefHeight="28.0" prefWidth="97.0" scaleShape="false" text="  Song Name" textFill="WHITE" HBox.hgrow="ALWAYS" />
+            <JFXSlider fx:id="PlayerSeek" cacheShape="false" centerShape="false" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="549.0" scaleShape="false" HBox.hgrow="ALWAYS" />
+            <JFXButton fx:id="PlayerLast" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0" prefHeight="30.0" prefWidth="40.0" text="Last" textFill="WHITE" HBox.hgrow="SOMETIMES" />
+            <JFXButton fx:id="PlayerPlay" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0" prefHeight="30.0" prefWidth="40.0" text="Play" textFill="WHITE" HBox.hgrow="SOMETIMES" />
+            <JFXButton fx:id="PlayerNext" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0" prefHeight="45.0" prefWidth="40.0" text="Next" textFill="WHITE" HBox.hgrow="SOMETIMES" />
+            <JFXButton fx:id="PlayerRepeat" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0" prefHeight="41.0" prefWidth="40.0" text="Repeat" textFill="WHITE" HBox.hgrow="SOMETIMES" />
+            <JFXButton fx:id="PlayerShuffle" contentDisplay="GRAPHIC_ONLY" maxHeight="30.0" maxWidth="40.0" prefHeight="38.0" prefWidth="40.0" text="Shuffle" textFill="WHITE" HBox.hgrow="SOMETIMES" />
         </HBox>
     </VBox>
 </StackPane>
