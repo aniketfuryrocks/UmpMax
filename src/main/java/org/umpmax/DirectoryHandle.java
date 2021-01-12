@@ -25,23 +25,6 @@ public class DirectoryHandle {
             location = AppData + "/UmpMax";
     }
 
-    public void ChooseDirectory() throws Exception {
-        File SystemLocation = new File(location);
-        if (!SystemLocation.exists())
-            SystemLocation.mkdir();
-
-        File DirectoryFolder = new File(location + "/Directories");
-        if (!DirectoryFolder.exists())
-            DirectoryFolder.mkdir();
-
-        DirectoryChooser Fc = new DirectoryChooser();
-        Fc.setTitle("Choose Directory");
-        f = Fc.showDialog(null);
-        System.out.println(f.toString());
-        WriteToDirectory();
-        System.out.println("done");
-    }
-
     public static void WriteToDirectory() throws Exception {
         File file = new File(location + "/Directories");
         int number = file.listFiles().length;
@@ -163,6 +146,23 @@ public class DirectoryHandle {
             }
         }
         return hi;
+    }
+
+    public void ChooseDirectory() throws Exception {
+        File SystemLocation = new File(location);
+        if (!SystemLocation.exists())
+            SystemLocation.mkdir();
+
+        File DirectoryFolder = new File(location + "/Directories");
+        if (!DirectoryFolder.exists())
+            DirectoryFolder.mkdir();
+
+        DirectoryChooser Fc = new DirectoryChooser();
+        Fc.setTitle("Choose Directory");
+        f = Fc.showDialog(null);
+        System.out.println(f.toString());
+        WriteToDirectory();
+        System.out.println("done");
     }
 
     public void getDirectories(List<File> Directories) throws Exception {
