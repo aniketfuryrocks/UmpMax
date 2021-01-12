@@ -1,7 +1,10 @@
 # UmpMax
-A Media player written in JAVAFX
+A Media player made in JavaFX
 
-This project dates back to 2016. It was my very first software in java; 
-I was 13 years old then. So obviously the code quality is awful.
+> This project is stale. The codebase dates back to 2016 when I was 13. So obviously, the code quality is awful.
 
-> Use this project for inspiration. 
+Features: 
++ Visualizer
++ Equalizer
++ Playlist
++ MetaData
