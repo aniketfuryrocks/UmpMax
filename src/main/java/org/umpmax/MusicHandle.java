@@ -218,39 +218,19 @@ public class MusicHandle extends Thread {
 
     public void StartNodes() {
         System.out.println("Nodes Started");
-        //Seeker
         double Total = mp.getMedia().getDuration().toSeconds();
         Seeker.setMax(Total);
         Seeker.setMin(0);
-        Seeker.setOnMouseDragged((e) -> {
-            mp.seek(Duration.seconds(Seeker.getValue()));
-        });
-        mp.currentTimeProperty().addListener((ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) -> {
-            Seeker.setValue(newValue.toSeconds());
-        });
-        //End
-
-        //PlayBt
-
+        Seeker.setOnMouseDragged((e) -> mp.seek(Duration.seconds(Seeker.getValue())));
+        mp.currentTimeProperty().addListener((ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) -> Seeker.setValue(newValue.toSeconds()));
         PlayBt.setOnAction((e) -> {
             if (mp.getStatus() == MediaPlayer.Status.PLAYING)
                 pause();
             else
                 play();
         });
-        //End
-
-
-        //Label
         NameLb.setText("  " + SongName);
-        //End
-
-
-        EqBt.setOnAction((e) -> {
-            eq.BtAct();
-        });
-
-
+        EqBt.setOnAction((e) -> eq.BtAct());
     }
 
     public void StartMusicVisual() {
@@ -306,34 +286,25 @@ public class MusicHandle extends Thread {
                 VisualContainer.getChildren().add(rect[i]);
             }
 
-            mp.setAudioSpectrumListener(new AudioSpectrumListener() {
-                @Override
-                public void spectrumDataUpdate(double timestamp, double duration, float[] mag, float[] phases) {
-
-                    for (int i = 0; i < rect.length; i++) {
-                        double zero = (mag[i] + 60) * 2;
-                        double dur = duration / 2;
-                        if (zero > 2) {
-                            sct[i].setToY(zero);
-                            sct[i].setDuration(Duration.seconds(dur));
-                            sct[i].play();
-                        }
-                        if (zero < 2) {
-                            sct[i].setToY(2);
-                            sct[i].setDuration(Duration.seconds(dur));
-                            sct[i].play();
-
-                        }
+            mp.setAudioSpectrumListener((timestamp, duration, mag, phases) -> {
+                for (int i = 0; i < rect.length; i++) {
+                    double zero = (mag[i] + 60) * 2;
+                    double dur = duration / 2;
+                    if (zero > 2) {
+                        sct[i].setToY(zero);
+                        sct[i].setDuration(Duration.seconds(dur));
+                        sct[i].play();
                     }
-
+                    if (zero < 2) {
+                        sct[i].setToY(2);
+                        sct[i].setDuration(Duration.seconds(dur));
+                        sct[i].play();
+                    }
                 }
             });
-
         });
-
         Platform.runLater(t1);
         t1.setPriority(MAX_PRIORITY);
-
     }
 
     public void StartVideo() {
@@ -415,8 +386,6 @@ public class MusicHandle extends Thread {
         });
         Platform.runLater(t2);
         t2.setPriority(MAX_PRIORITY);
-
-
     }
 
     public void SetScene(Stage stage) {
@@ -433,8 +402,7 @@ public class MusicHandle extends Thread {
             InfoLb.setVisible(false);
         });
         stage.getScene().setOnKeyPressed((e) -> {
-            if (e.getCode() == KeyCode.H) {
-
+            if (e.getCode() == KeyCode.H)
                 if (!DataContainer.isVisible()) {
                     if (FatherContainer.getChildren().contains(ControlBar)) {
                         FatherContainer.getChildren().remove(ControlBar);
@@ -446,9 +414,7 @@ public class MusicHandle extends Thread {
                         }
                     }
                 }
-
-            }
-            if (e.getCode() == KeyCode.F) {
+            if (e.getCode() == KeyCode.F)
                 if (mv != null) {
                     mv.setFitHeight(PlayerContainer.getHeight());
                     mv.setFitWidth(PlayerContainer.getWidth());
@@ -456,38 +422,28 @@ public class MusicHandle extends Thread {
                     InfoLb.setText("M_FullScreen");
                     ft.playFromStart();
                 }
-            }
-            if (e.getCode() == KeyCode.R) {
+
+            if (e.getCode() == KeyCode.R)
                 if (mv != null) {
-                    if (mv.isPreserveRatio()) {
-
-                        mv.setPreserveRatio(false);
-                        InfoLb.setVisible(true);
-                        InfoLb.setText("Ratio : False");
-                        ft.playFromStart();
-                    } else {
-                        mv.setPreserveRatio(true);
-                        InfoLb.setVisible(true);
-                        InfoLb.setText("Ratio : True");
-                        ft.playFromStart();
-                    }
-
+                    boolean b = !mv.isPreserveRatio();
+                    mv.setPreserveRatio(b);
+                    InfoLb.setVisible(true);
+                    InfoLb.setText("Ratio : "+ Boolean.toString(b));
+                    ft.playFromStart();
                 }
 
-            }
             if (e.getCode() == KeyCode.SPACE || e.getCode() == KeyCode.P) {
                 if (mp != null) {
                     if (mp.getStatus() == MediaPlayer.Status.PLAYING) {
                         pause();
                         InfoLb.setVisible(true);
                         InfoLb.setText("Paused");
-                        ft.playFromStart();
                     } else {
                         play();
                         InfoLb.setVisible(true);
                         InfoLb.setText("Playing");
-                        ft.playFromStart();
                     }
+                    ft.playFromStart();
                 }
             }
 
@@ -522,16 +478,14 @@ public class MusicHandle extends Thread {
                     Mute = false;
                     InfoLb.setVisible(true);
                     InfoLb.setText("UnMute");
-                    ft.playFromStart();
                 } else {
                     mp.setMute(true);
                     Mute = true;
                     InfoLb.setVisible(true);
                     InfoLb.setText("Mute");
-                    ft.playFromStart();
                 }
+                ft.playFromStart();
             }
-
 
         });
         stage.getScene().setOnMouseClicked((e) -> {
@@ -539,7 +493,7 @@ public class MusicHandle extends Thread {
                 if (!stage.isFullScreen()) {
                     stage.setFullScreen(true);
                     InfoLb.setVisible(true);
-                    InfoLb.setText("FullScreeen");
+                    InfoLb.setText("FullScreen");
                     ft.playFromStart();
                 } else {
                     stage.setFullScreen(false);
@@ -605,7 +559,6 @@ public class MusicHandle extends Thread {
                     StartMusicVisual();
                 else
                     StartVideo();
-
             } catch (Exception ex) {
                 System.out.println(ex);
                 Que.remove(r);
@@ -757,14 +710,10 @@ public class MusicHandle extends Thread {
         Vst.setScene(sc);
         Vst.initStyle(StageStyle.TRANSPARENT);
         sc.setFill(Color.TRANSPARENT);
-        StageResizer sr = new StageResizer(Vst, sc);
+        new StageResizer(Vst, sc);
         Vst.show();
-        sr = null;
-        sc = null;
         detached = true;
-        Vst.setOnCloseRequest((e) -> {
-            UnDetachVisualizer();
-        });
+        Vst.setOnCloseRequest((e) -> UnDetachVisualizer());
     }
 
     public void UnDetachVisualizer() {

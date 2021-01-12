@@ -10,7 +10,7 @@
     <name>UmpMax</name>
 
     <properties>
-
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
         <javafx.version>15.0.1</javafx.version>
@@ -56,6 +56,7 @@
                 <configuration>
                     <release>14</release>
                     <mainClass>org.umpmax.mainClass</mainClass>
+                    <launcher>UmpMax</launcher>
                 </configuration>
             </plugin>
         </plugins>

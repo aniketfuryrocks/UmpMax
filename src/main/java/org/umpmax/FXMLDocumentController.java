@@ -427,24 +427,13 @@ public class FXMLDocumentController implements Initializable {
                 }
                 if (SettingsSelected == 3) {
                     if (CurrentPlayingMedia != null) {
-                        HBox hb = new HBox(5);
-                        Label lb = new Label("Configure Color");
-                        JFXColorPicker chooser = new JFXColorPicker();
-                        chooser.getCustomColors().add(Color.YELLOWGREEN);
-                        chooser.setValue(mh.getRectColor());
-                        chooser.setEditable(true);
-                        chooser.valueProperty().addListener((ChangeListener) (observable, oldValue, newValue) -> mh.setVisualizerColor((Color) newValue));
-                        hb.setAlignment(Pos.CENTER_LEFT);
-                        hb.getChildren().addAll(lb, chooser);
-
                         JFXToggleButton toggle = new JFXToggleButton();
                         toggle.setText("Detach to newWindows");
                         toggle.setTextFill(Color.WHITE);
                         toggle.setMouseTransparent(true);
                         toggle.selectedProperty().set(mh.isVisualizerDetahed());
-
                         SettingsContentList.getItems().clear();
-                        SettingsContentList.getItems().addAll(hb, toggle);
+                        SettingsContentList.getItems().addAll(toggle);
                     } else {
                         error.SetError("Notification", "These settings are not accessible right now");
                     }
@@ -584,8 +573,8 @@ public class FXMLDocumentController implements Initializable {
                 }
                 if (SettingsSelected == 3) {
                     switch (selectedint) {
-                        case 1:
-                            JFXToggleButton toggle = (JFXToggleButton) SettingsContentList.getItems().get(1);
+                        case 0:
+                            JFXToggleButton toggle = (JFXToggleButton) SettingsContentList.getItems().get(0);
                             if (toggle.selectedProperty().get()) {
                                 toggle.selectedProperty().set(false);
                                 mh.UnDetachVisualizer();
@@ -599,8 +588,6 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
         });
-
-
     }
 
     private void StartHandle() {
