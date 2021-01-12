@@ -148,7 +148,6 @@ public class DirectoryHandle {
                     bra.close();
                     fra.close();
                     if (s.equals(sa) && !fileList[i].getName().equals(fileList[y].getName())) {
-
                         System.out.println(fileList[i].getName() + "&" + fileList[y].getName() + " are duplicate in data");
                         System.out.println(fileList[i] + "is being deleted");
                         lll.get(y).delete();
@@ -166,25 +165,19 @@ public class DirectoryHandle {
 
     public void getDirectories(List<File> Directories) throws Exception {
         File file = new File(location + "/Directories");
-        file.setReadOnly();
-        file.setWritable(false);
+        //file.setReadOnly();
+        //file.setWritable(false);
         File[] fileList = file.listFiles();
         Directories.clear();
-        for (int i = 0; i < fileList.length; i++) {
-            try {
-                FileReader fr = new FileReader(fileList[i]);
-                BufferedReader br = new BufferedReader(fr);
-                String s = br.readLine();
-                File location = new File(s);
-                Directories.add(location);
-                br.close();
-                fr.close();
-            } catch (Exception ex) {
-                throw ex;
-            }
-
+        for (File value : fileList) {
+            FileReader fr = new FileReader(value);
+            BufferedReader br = new BufferedReader(fr);
+            String s = br.readLine();
+            File location = new File(s);
+            Directories.add(location);
+            br.close();
+            fr.close();
         }
-
     }
 
     public void getStreams(List<File> Songs, List<File> Videos) throws Exception {
