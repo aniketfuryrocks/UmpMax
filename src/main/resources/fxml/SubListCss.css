@@ -1,0 +1,25 @@
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: transparent;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: transparent;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.list-view .label {
+    -fx-text-fill: white;
+}
+
+.jfx-rippler {
+    -jfx-rippler-fill: white;
+}
