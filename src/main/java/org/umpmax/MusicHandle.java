@@ -37,7 +37,6 @@ import java.util.List;
 import java.util.Random;
 
 public class MusicHandle extends Thread {
-
     MediaPlayer mp;
     MediaView mv;
     JFXSlider Seeker = new JFXSlider();
@@ -46,7 +45,6 @@ public class MusicHandle extends Thread {
     String SongName;
     HBox VisualContainer;
     Thread t1 = new Thread();
-    Thread t2 = new Thread();
     HBox TitleBar;
     HBox ControlBar;
     VBox FatherContainer;
@@ -90,13 +88,10 @@ public class MusicHandle extends Thread {
         Thread.currentThread().setPriority(MAX_PRIORITY);
     }
 
-    public void setMedia(Media media, String SongName) throws Exception {
+    public void setMedia(Media media, String SongName) {
         this.SongName = SongName;
-
         if (!recent.getItems().contains(SongName))
             recent.getItems().add(SongName);
-
-
         mp = new MediaPlayer(media);
         mp.setOnReady(() -> {
             play();
@@ -186,16 +181,12 @@ public class MusicHandle extends Thread {
         }
     }
 
-    public void seek(double seekValue) {
-        mp.seek(Duration.seconds(seekValue));
-    }
 
     public MediaPlayer getMediaPlayer() {
         return mp;
     }
 
     public void setNodes(JFXSlider Seeker, JFXButton PlayBt, Label NameLb, HBox InfoBox, HBox VisualContainer, VBox PlayerContainer, HBox TitleBar, HBox ControlBar, VBox FatherContainer, Label InfoLb, JFXButton EqBt, ImageView AlbumImg, Label SongName, HBox DataContainer) {
-
         this.Seeker = Seeker;
         this.PlayBt = PlayBt;
         this.NameLb = NameLb;
@@ -332,7 +323,6 @@ public class MusicHandle extends Thread {
                     else
                         m2.setText("Turn on : Window Always On Top");
 
-
                     m.getItems().addAll(m1, m2);
                     m1.setOnAction((m1a) -> {
                         Label Resizelb = new Label();
@@ -349,7 +339,6 @@ public class MusicHandle extends Thread {
                         st.setMinHeight(100.0);
                         st.setMinWidth(100.0);
                         st.initStyle(StageStyle.DECORATED);
-
                         st.setScene(sc);
                         st.setHeight(stage.getHeight());
                         st.setWidth(stage.getWidth());
@@ -367,20 +356,12 @@ public class MusicHandle extends Thread {
                             mv.setFitHeight(stage.getHeight() - 68.0);
                             mv.setFitWidth(stage.getWidth());
                             mv.setPreserveRatio(true);
-                            st = null;
-
                         });
-
-
                     });
-                    m2.setOnAction((m2e) -> {
-                        stage.setAlwaysOnTop(!stage.isAlwaysOnTop());
-
-                    });
+                    m2.setOnAction((m2e) -> stage.setAlwaysOnTop(!stage.isAlwaysOnTop()));
                     m.setX(e.getScreenX());
                     m.setY(e.getScreenY());
                     m.show(stage.getScene().getWindow());
-
                 }
             });
         });
@@ -658,43 +639,12 @@ public class MusicHandle extends Thread {
         return mp.getMedia().getMarkers();
     }
 
-    public void addMarkerifAbsent(String value, Duration duration) {
-        mp.getMedia().getMarkers().clear();
-        mp.getMedia().getMarkers().putIfAbsent(value, duration);
-    }
-
-    public void addMarker(String value, Duration duration) {
-        mp.getMedia().getMarkers().clear();
-        mp.getMedia().getMarkers().put(value, duration);
-    }
-
     public ObservableMap<String, Object> getMetadata() {
         return mp.getMedia().getMetadata();
     }
 
-    public void addMetadataIfAbseent(String type, Object ob) throws UnsupportedOperationException {
-        mp.getMedia().getMetadata().putIfAbsent(type, ob);
-    }
-
-    public void addMetadata(String type, Object ob) {
-        mp.getMedia().getMetadata().put(type, ob);
-    }
-
     public void setPane(StackPane pane) {
         eq.setPane(pane);
-    }
-
-    public void setVisualizerColor(Color color) {
-        this.RectColor = color;
-        if (rect != null) {
-            for (int i = 0; i < rect.length; i++) {
-                rect[i].setFill(color);
-            }
-        }
-    }
-
-    public Color getRectColor() {
-        return RectColor;
     }
 
     public void DetachVisualizer() {
@@ -730,6 +680,5 @@ public class MusicHandle extends Thread {
     public Boolean isVisualizerDetahed() {
         return detached;
     }
-
 
 }

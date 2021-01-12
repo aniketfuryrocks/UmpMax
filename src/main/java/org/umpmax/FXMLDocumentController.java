@@ -130,13 +130,8 @@ public class FXMLDocumentController implements Initializable {
             VBox vb = new VBox(15);
             vb.setAlignment(Pos.CENTER);
             ImageView i1 = new ImageView(new Image(getClass().getResourceAsStream("assets/Company_Logo.png")));
-            Label lb = new Label(" UmpMax was Developed by an Individual .The following version is the final 1.0.0 release"
-                    + "\n with all media player functionalities .More functions will be added in future release,"
-                    + "\n Such as Metadata Editor, Virtual DJ, MKV Support and other codecs support."
-                    + "\n For future updates, Please refer us to our website or send us an E-mail."
-                    + "\n\n Contact details:\n Website : www.umpmax.tk \n E-mail : umpmax306@gmail.com"
-                    + "\n\n Developer:\n Aniket Prajapati \n India, UttarPradesh, Kanpur.");
-            lb.setStyle("-fx-font-size: 20;");
+            Label lb = new Label("This product has been discontinued.\nDeveloper: Aniket Prajapati (prajapati.ani306@gmail.com)\nGithub: https://github.com/aniketfuryrocks/UmpMax");
+            lb.setStyle("-fx-font-size: 18;");
             lb.setTextFill(Color.WHITE);
             vb.getChildren().addAll(i1, lb);
             vb.setPrefSize(800, 540);
@@ -161,7 +156,6 @@ public class FXMLDocumentController implements Initializable {
                 System.exit(0);
             });
         });
-
 
         //Song name label Action end
         MainCollectionBt.setOnAction((e) -> {
@@ -227,6 +221,7 @@ public class FXMLDocumentController implements Initializable {
         ImageView EquaView = new ImageView(new Image(getClass().getResourceAsStream("assets/equalizerIm.png")));
         EquaView.setFitHeight(20);
         EquaView.setFitWidth(20);
+
         EquaBt.setGraphic(EquaView);
         EquaBt.setDisable(true);
     }
@@ -316,7 +311,6 @@ public class FXMLDocumentController implements Initializable {
                             break;
                         }
                     }
-
                 } else {
                     for (int i = 0; i < Videos.size(); i++) {
                         if (ToPlay.equals(Videos.get(i).getName())) {
@@ -336,10 +330,8 @@ public class FXMLDocumentController implements Initializable {
                             break;
                         }
                     }
-
                 }
             }
-
 
         });
         PlayerNext.setOnAction((e) -> {
@@ -349,8 +341,6 @@ public class FXMLDocumentController implements Initializable {
                 CurrentPlayingMedia = mh.getMediaPlayer().getMedia();
             }
         });
-
-
     }
 
     private void CollectionControl() {

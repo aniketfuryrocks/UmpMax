@@ -59,7 +59,6 @@ public class Equalizer extends Thread {
                     eq.getBands().get(i).setGain(sd[i].getValue());
                     currentEq[i] = eq.getBands().get(i).getGain();
                 }
-
             };
             for (int i = 0; i < sd.length; i++) {
                 sd[i] = new JFXSlider();
@@ -84,7 +83,6 @@ public class Equalizer extends Thread {
                 LbH.getChildren().add(lb[i]);
                 slidC.getChildren().add(sd[i]);
             }
-
 
             MenuButton menB = new MenuButton("Preset");
             MenuItem HBbt = new MenuItem("Heavy Base");
